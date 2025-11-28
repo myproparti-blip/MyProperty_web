@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
+import emailjs from 'emailjs-com';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -11,6 +12,13 @@ export default function ContactModal({ isOpen, onClose }) {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init('GDoVlmdwCiHEmV0re');
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,14 +28,38 @@ export default function ContactModal({ isOpen, onClose }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      onClose();
-    }, 2000);
+    setLoading(true);
+    setError('');
+
+    const emailParams = {
+      to_email: 'kunal6353199@gmail.com',
+      user_name: formData.name,
+      user_email: formData.email,
+      user_phone: formData.phone,
+      user_subject: formData.subject,
+      user_message: formData.message,
+    };
+
+    try {
+      await emailjs.send(
+        'service_edhxzp8',
+        'template_fktubtq',
+        emailParams
+      );
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        onClose();
+      }, 2000);
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+      console.error('EmailJS error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -92,7 +124,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         </div>
                         <div>
                           <h3 className="font-bold text-slate-900 dark:text-white">Email</h3>
-                          <p className="text-sm text-slate-600 dark:text-slate-400">info@estatepro.com</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">myproparti@gmail.com</p>
                         </div>
                       </div>
                     </div>
@@ -217,13 +249,20 @@ export default function ContactModal({ isOpen, onClose }) {
                         />
                       </div>
 
+                      {error && (
+                        <div className="p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg text-sm">
+                          {error}
+                        </div>
+                      )}
+
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         type="submit"
-                        className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+                        disabled={loading}
+                        className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow disabled:opacity-70"
                       >
-                        Send Message
+                        {loading ? 'Sending...' : 'Send Message'}
                       </motion.button>
                     </form>
                   )}
