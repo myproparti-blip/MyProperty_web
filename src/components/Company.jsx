@@ -70,12 +70,12 @@ export default function Company() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              Mahime Architects<br />
+              Mahim Corporation<br />
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Parent Company</span>
             </h2>
             
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              EstatePro is a division of Mahime Architects, a globally recognized leader in architectural design and real estate development. With over 20 years of industry experience, we combine architectural excellence with real estate expertise to deliver outstanding properties and services.
+              MyProparti is a division of Mahim Corporation, a globally recognized leader in architectural design and real estate development. With over 20 years of industry experience, we combine architectural excellence with real estate expertise to deliver outstanding properties and services.
             </p>
 
             <div className="space-y-4 mb-8">

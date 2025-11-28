@@ -1,0 +1,107 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Sky -->
+  <rect width="800" height="500" fill="url(#skyGrad)"/>
+  
+  <!-- City Skyline -->
+  <rect x="0" y="320" width="800" height="180" fill="#0f0f1e"/>
+  
+  <!-- Main Modern Building -->
+  <rect x="150" y="80" width="250" height="340" fill="url(#buildingGrad)" stroke="#2d2d44" stroke-width="2"/>
+  
+  <!-- Modern Glass Windows Grid -->
+  <g fill="#4a9eff" opacity="0.8">
+    <!-- Row 1 -->
+    <rect x="170" y="100" width="35" height="35" rx="3"/>
+    <rect x="220" y="100" width="35" height="35" rx="3"/>
+    <rect x="270" y="100" width="35" height="35" rx="3"/>
+    <rect x="320" y="100" width="35" height="35" rx="3"/>
+    
+    <!-- Row 2 -->
+    <rect x="170" y="155" width="35" height="35" rx="3"/>
+    <rect x="220" y="155" width="35" height="35" rx="3"/>
+    <rect x="270" y="155" width="35" height="35" rx="3"/>
+    <rect x="320" y="155" width="35" height="35" rx="3"/>
+    
+    <!-- Row 3 -->
+    <rect x="170" y="210" width="35" height="35" rx="3"/>
+    <rect x="220" y="210" width="35" height="35" rx="3"/>
+    <rect x="270" y="210" width="35" height="35" rx="3"/>
+    <rect x="320" y="210" width="35" height="35" rx="3"/>
+    
+    <!-- Row 4 -->
+    <rect x="170" y="265" width="35" height="35" rx="3"/>
+    <rect x="220" y="265" width="35" height="35" rx="3"/>
+    <rect x="270" y="265" width="35" height="35" rx="3"/>
+    <rect x="320" y="265" width="35" height="35" rx="3"/>
+  </g>
+  
+  <!-- Accent Lighting -->
+  <g fill="#ff6b6b" opacity="0.6">
+    <rect x="170" y="100" width="35" height="35" rx="3"/>
+    <rect x="270" y="210" width="35" height="35" rx="3"/>
+    <rect x="320" y="155" width="35" height="35" rx="3"/>
+  </g>
+  
+  <!-- Modern Building Accent Line -->
+  <rect x="150" y="75" width="250" height="4" fill="#ff6b6b"/>
+  
+  <!-- Balconies -->
+  <g fill="none" stroke="#4a9eff" stroke-width="2">
+    <line x1="400" y1="140" x2="440" y2="140"/>
+    <line x1="400" y1="195" x2="440" y2="195"/>
+    <line x1="400" y1="250" x2="440" y2="250"/>
+  </g>
+  
+  <!-- Side Modern Accent Building -->
+  <rect x="450" y="150" width="200" height="270" fill="#2a2a3e" stroke="#3d3d52" stroke-width="2"/>
+  
+  <!-- Accent Building Windows -->
+  <g fill="#a8dadc" opacity="0.7">
+    <rect x="470" y="175" width="30" height="30" rx="2"/>
+    <rect x="515" y="175" width="30" height="30" rx="2"/>
+    <rect x="560" y="175" width="30" height="30" rx="2"/>
+    
+    <rect x="470" y="230" width="30" height="30" rx="2"/>
+    <rect x="515" y="230" width="30" height="30" rx="2"/>
+    <rect x="560" y="230" width="30" height="30" rx="2"/>
+    
+    <rect x="470" y="285" width="30" height="30" rx="2"/>
+    <rect x="515" y="285" width="30" height="30" rx="2"/>
+    <rect x="560" y="285" width="30" height="30" rx="2"/>
+  </g>
+  
+  <!-- Modern Landscaping -->
+  <g fill="#2ecc71" opacity="0.7">
+    <circle cx="80" cy="380" r="45"/>
+    <circle cx="730" cy="390" r="50"/>
+    <rect x="100" y="400" width="15" height="40" fill="#27ae60"/>
+    <rect x="750" y="420" width="20" height="50" fill="#27ae60"/>
+  </g>
+  
+  <!-- Modern Street Elements -->
+  <rect x="0" y="420" width="800" height="15" fill="#555555"/>
+  <g stroke="#ffff00" stroke-width="2" opacity="0.5">
+    <line x1="100" y1="427" x2="150" y2="427"/>
+    <line x1="250" y1="427" x2="300" y2="427"/>
+    <line x1="400" y1="427" x2="450" y2="427"/>
+    <line x1="550" y1="427" x2="600" y2="427"/>
+    <line x1="700" y1="427" x2="750" y2="427"/>
+  </g>
+  
+  <!-- Decorative Lights -->
+  <g fill="#ffd700">
+    <circle cx="750" cy="350" r="8" opacity="0.8"/>
+    <circle cx="100" cy="400" r="6" opacity="0.6"/>
+  </g>
+</svg>

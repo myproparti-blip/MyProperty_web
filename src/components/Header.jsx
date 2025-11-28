@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
+import { FiMenu, FiX, FiHome } from 'react-icons/fi';
 
 export default function Header({ isDark, setIsDark, onContactClick }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,16 +13,25 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
   ];
 
   return (
-    <header className="fixed w-full top-0 z-50 glass">
+    <header className="w-full absolute top-0 left-0 z-10 bg-opacity-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+            className="flex items-center gap-3 cursor-pointer group"
           >
-            MyProperty
+            <div className="relative w-9 h-9">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+              <div className="relative w-9 h-9 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white shadow-2xl">
+                <FiHome size={20} />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black text-white tracking-tight">MyProparti</span>
+              <span className="text-xs text-purple-300 font-semibold -mt-1">Properties</span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -34,7 +43,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                className="text-slate-200 hover:text-purple-300 transition-colors"
               >
                 {item.label}
               </motion.a>
@@ -43,16 +52,6 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
 
           {/* Right Controls */}
           <div className="flex items-center gap-4">
-            {/* Dark Mode Toggle */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
-            >
-              {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
-            </motion.button>
-
             {/* Contact Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -66,7 +65,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-slate-700 dark:text-slate-300"
+              className="md:hidden p-2 text-slate-200"
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -78,13 +77,13 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden pb-4 border-t border-slate-200 dark:border-slate-800"
+            className="md:hidden pb-4 border-t border-slate-700"
           >
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-slate-700 dark:text-slate-300 hover:text-purple-600"
+                className="block py-2 text-slate-200 hover:text-purple-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 const searchData = [
   { id: 1, name: 'Expert Consultants', type: 'Consulting', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop', section: '#consultants' },
   { id: 2, name: 'Professional Property Management', type: 'Property', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=150&h=150&fit=crop', section: '#management' },
-  { id: 3, name: 'Mahime Architects', type: 'Architecture', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=150&h=150&fit=crop', section: '#services' },
+  { id: 3, name: 'Mahim Corporation', type: 'Architecture', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=150&h=150&fit=crop', section: '#services' },
   { id: 4, name: 'Parent Company', type: 'Organization', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop', section: '#company' },
   { id: 5, name: 'Property Listings', type: 'Properties', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=150&h=150&fit=crop', section: '#properties' },
 ];

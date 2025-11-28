@@ -1,39 +1,42 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiShield, FiHome, FiTrendingUp, FiCheckCircle, FiWifi } from 'react-icons/fi';
+import { FiHome, FiDroplet, FiMapPin, FiDollarSign } from 'react-icons/fi';
+import { propertyService } from '../services/propertyService';
 
-export default function PropertyManagement() {
+export default function FeaturedPropertiesSection() {
   const [isHovered, setIsHovered] = useState(false);
 
-  const management = {
-    name: 'Professional Property Management',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop&q=80',
-    propertiesManaged: '500+',
-    yearsExperience: '15+',
-    uptime: '99.8%',
-    description: 'Comprehensive property management solutions that handle every aspect of your rental property, from tenant screening to maintenance, ensuring maximum returns on your investment.',
-    features: [
-      'Tenant Screening & Placement',
-      'Rent Collection & Payment Processing',
-      'Maintenance & Repairs',
-      'Accounting & Financial Reports'
+  const categorizedProperties = propertyService.getCategorizedProperties();
+
+  const featuredProperty = {
+    name: 'Featured Properties',
+    description: 'Discover our handpicked selection of premium properties. Each property is carefully chosen for its quality, location, and investment potential.',
+    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=600&fit=crop&q=95',
+    totalProperties: '250+',
+    citiesCovered: '15+',
+    propertyTypes: '12',
+    luxuryApts: [
+      'Modern 3BHK in City Center',
+      'Sea-Facing 4BHK Penthouse',
+      'Gated Community 2BHK',
+      'Premium Studio Apartments'
     ],
-    benefits: [
-      '24/7 Emergency Response',
-      'Online Portal Access',
-      'Professional Maintenance Crew',
-      'Legal & Compliance Management'
+    commercial: [
+      'Office Spaces in Business Districts',
+      'Retail Shops in Malls',
+      'Restaurant & Cafe Locations',
+      'Warehouse & Storage Facilities'
     ],
-    services: [
-      'Full Property Management',
-      'Partial Management',
-      'Leasing Services',
-      'Maintenance Coordination'
+    residential: [
+      'Independent Villas',
+      'Townhouses',
+      'Farmhouses',
+      'Plot Investments'
     ]
   };
 
   return (
-    <section id="management" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 dark:bg-slate-950">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 dark:bg-slate-950">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -43,10 +46,10 @@ export default function PropertyManagement() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Professional <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Property Management</span>
+            Featured <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Properties</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Complete management solutions to maximize your property's value and returns.
+            Discover our handpicked selection of premium properties. Each property is carefully chosen for its quality, location, and investment potential.
           </p>
         </motion.div>
 
@@ -56,9 +59,10 @@ export default function PropertyManagement() {
           className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
         >
           {/* Background Image */}
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${management.image})` }}
+          <motion.img 
+            src={featuredProperty.image}
+            alt={featuredProperty.name}
+            className="absolute inset-0 w-full h-full object-cover"
             animate={{ scale: isHovered ? 1.1 : 1 }}
             transition={{ duration: 0.4 }}
           />
@@ -71,23 +75,23 @@ export default function PropertyManagement() {
             transition={{ duration: 0.3 }}
           >
             <div>
-              <h3 className="text-white text-4xl font-bold mb-2">{management.name}</h3>
+              <h3 className="text-white text-4xl font-bold mb-2">{featuredProperty.name}</h3>
               <p className="text-slate-300 text-lg max-w-lg leading-relaxed mb-6">
-                {management.description}
+                {featuredProperty.description}
               </p>
 
               {/* Three Column Layout */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div>
                   <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                    <FiCheckCircle size={14} className="text-purple-400" />
-                    Features
+                    <FiHome size={14} className="text-purple-400" />
+                    Luxury Apartments
                   </h4>
                   <ul className="space-y-2">
-                    {management.features.map((feature, idx) => (
+                    {featuredProperty.luxuryApts.map((apt, idx) => (
                       <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                         <span className="text-pink-400 mt-1">→</span>
-                        <span>{feature}</span>
+                        <span>{apt}</span>
                       </li>
                     ))}
                   </ul>
@@ -95,14 +99,14 @@ export default function PropertyManagement() {
 
                 <div>
                   <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                    <FiShield size={14} className="text-pink-400" />
-                    Benefits
+                    <FiDollarSign size={14} className="text-pink-400" />
+                    Commercial Spaces
                   </h4>
                   <ul className="space-y-2">
-                    {management.benefits.map((benefit, idx) => (
+                    {featuredProperty.commercial.map((space, idx) => (
                       <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                         <span className="text-purple-400 mt-1">→</span>
-                        <span>{benefit}</span>
+                        <span>{space}</span>
                       </li>
                     ))}
                   </ul>
@@ -110,14 +114,14 @@ export default function PropertyManagement() {
 
                 <div>
                   <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                    <FiHome size={14} className="text-blue-400" />
-                    Services
+                    <FiMapPin size={14} className="text-blue-400" />
+                    Residential Homes
                   </h4>
                   <ul className="space-y-2">
-                    {management.services.map((service, idx) => (
+                    {featuredProperty.residential.map((home, idx) => (
                       <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                         <span className="text-green-400 mt-1">→</span>
-                        <span>{service}</span>
+                        <span>{home}</span>
                       </li>
                     ))}
                   </ul>
@@ -126,26 +130,26 @@ export default function PropertyManagement() {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-4 flex-wrap pt-4 border-t border-slate-600">
+            <div className="flex gap-6 flex-wrap pt-4 border-t border-slate-600">
               <div className="flex items-center gap-2">
                 <FiHome size={20} className="text-blue-400" />
                 <div>
-                  <p className="text-slate-400 text-xs">Properties Managed</p>
-                  <p className="text-white font-bold">{management.propertiesManaged}</p>
+                  <p className="text-slate-400 text-xs">Properties Listed</p>
+                  <p className="text-white font-bold">{featuredProperty.totalProperties}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <FiTrendingUp size={20} className="text-green-400" />
+                <FiMapPin size={20} className="text-green-400" />
                 <div>
-                  <p className="text-slate-400 text-xs">Experience</p>
-                  <p className="text-white font-bold">{management.yearsExperience} Years</p>
+                  <p className="text-slate-400 text-xs">Cities Covered</p>
+                  <p className="text-white font-bold">{featuredProperty.citiesCovered}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 ml-auto">
-                <FiWifi size={20} className="text-yellow-400" />
+                <FiDroplet size={20} className="text-yellow-400" />
                 <div>
-                  <p className="text-slate-400 text-xs">Platform Uptime</p>
-                  <p className="text-white font-bold">{management.uptime}</p>
+                  <p className="text-slate-400 text-xs">Property Types</p>
+                  <p className="text-white font-bold">{featuredProperty.propertyTypes}</p>
                 </div>
               </div>
             </div>
@@ -155,7 +159,7 @@ export default function PropertyManagement() {
               whileTap={{ scale: 0.95 }}
               className="mt-6 px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold w-fit"
             >
-              Get Started
+              Explore All Properties
             </motion.button>
           </motion.div>
 
@@ -168,22 +172,22 @@ export default function PropertyManagement() {
           >
             <div className="flex-1" />
             <div>
-              <h3 className="text-white text-4xl font-bold mb-4">{management.name}</h3>
+              <h3 className="text-white text-4xl font-bold mb-4">{featuredProperty.name}</h3>
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur p-3 rounded-lg">
                   <p className="text-slate-300 text-xs font-semibold">PROPERTIES</p>
-                  <p className="text-white text-2xl font-bold">{management.propertiesManaged}</p>
-                  <p className="text-slate-400 text-xs">Managed</p>
+                  <p className="text-white text-2xl font-bold">{featuredProperty.totalProperties}</p>
+                  <p className="text-slate-400 text-xs">Listed</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur p-3 rounded-lg">
-                  <p className="text-slate-300 text-xs font-semibold">EXPERIENCE</p>
-                  <p className="text-white text-2xl font-bold">{management.yearsExperience}</p>
-                  <p className="text-slate-400 text-xs">Years</p>
+                  <p className="text-slate-300 text-xs font-semibold">CITIES</p>
+                  <p className="text-white text-2xl font-bold">{featuredProperty.citiesCovered}</p>
+                  <p className="text-slate-400 text-xs">Covered</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur p-3 rounded-lg">
-                  <p className="text-slate-300 text-xs font-semibold">UPTIME</p>
-                  <p className="text-white text-2xl font-bold">{management.uptime}</p>
-                  <p className="text-slate-400 text-xs">Guaranteed</p>
+                  <p className="text-slate-300 text-xs font-semibold">TYPES</p>
+                  <p className="text-white text-2xl font-bold">{featuredProperty.propertyTypes}</p>
+                  <p className="text-slate-400 text-xs">Property Types</p>
                 </div>
               </div>
             </div>

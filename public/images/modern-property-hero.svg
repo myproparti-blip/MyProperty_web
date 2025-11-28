@@ -1,0 +1,129 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="modernSkyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a472a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d5a3d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5a962;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="premiumBuild" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Gradient Sky -->
+  <rect width="800" height="500" fill="url(#modernSkyGrad)"/>
+  
+  <!-- Subtle Sun -->
+  <circle cx="700" cy="80" r="60" fill="#f5a962" opacity="0.3"/>
+  
+  <!-- Modern Curved Ground -->
+  <path d="M 0 350 Q 200 320 400 330 T 800 350 L 800 500 L 0 500 Z" fill="#1a472a" opacity="0.4"/>
+  
+  <!-- Main Premium Building - Modern Design -->
+  <g>
+    <!-- Main Structure -->
+    <rect x="200" y="100" width="300" height="320" fill="url(#premiumBuild)" stroke="#999" stroke-width="1" rx="10"/>
+    
+    <!-- Left Wing -->
+    <rect x="100" y="180" width="100" height="240" fill="#e8e8e8" stroke="#999" stroke-width="1" rx="8"/>
+    
+    <!-- Right Wing -->
+    <rect x="600" y="180" width="100" height="240" fill="#e8e8e8" stroke="#999" stroke-width="1" rx="8"/>
+  </g>
+  
+  <!-- Modern Window Grid - Main Building -->
+  <g fill="#5da3ff" stroke="#666" stroke-width="0.5">
+    <!-- Left Column -->
+    <rect x="220" y="120" width="30" height="30" rx="3"/>
+    <rect x="220" y="165" width="30" height="30" rx="3"/>
+    <rect x="220" y="210" width="30" height="30" rx="3"/>
+    <rect x="220" y="255" width="30" height="30" rx="3"/>
+    <rect x="220" y="300" width="30" height="30" rx="3"/>
+    <rect x="220" y="345" width="30" height="30" rx="3"/>
+    
+    <!-- Middle Column -->
+    <rect x="270" y="120" width="30" height="30" rx="3"/>
+    <rect x="270" y="165" width="30" height="30" rx="3"/>
+    <rect x="270" y="210" width="30" height="30" rx="3"/>
+    <rect x="270" y="255" width="30" height="30" rx="3"/>
+    <rect x="270" y="300" width="30" height="30" rx="3"/>
+    <rect x="270" y="345" width="30" height="30" rx="3"/>
+    
+    <!-- Right Column -->
+    <rect x="420" y="120" width="30" height="30" rx="3"/>
+    <rect x="420" y="165" width="30" height="30" rx="3"/>
+    <rect x="420" y="210" width="30" height="30" rx="3"/>
+    <rect x="420" y="255" width="30" height="30" rx="3"/>
+    <rect x="420" y="300" width="30" height="30" rx="3"/>
+    <rect x="420" y="345" width="30" height="30" rx="3"/>
+  </g>
+  
+  <!-- Accent Highlights on Windows -->
+  <g fill="#ff6b9d" opacity="0.6">
+    <rect x="270" y="120" width="30" height="30" rx="3"/>
+    <rect x="420" y="210" width="30" height="30" rx="3"/>
+    <rect x="220" y="300" width="30" height="30" rx="3"/>
+  </g>
+  
+  <!-- Modern Entrance -->
+  <rect x="280" y="380" width="80" height="60" fill="#444" rx="4"/>
+  <g fill="#5da3ff" opacity="0.7">
+    <rect x="290" y="390" width="15" height="40" rx="2"/>
+    <rect x="325" y="390" width="15" height="40" rx="2"/>
+    <rect x="360" y="390" width="15" height="40" rx="2"/>
+  </g>
+  
+  <!-- Wing Building Windows -->
+  <g fill="#5da3ff" stroke="#666" stroke-width="0.5">
+    <!-- Left Wing -->
+    <rect x="115" y="200" width="20" height="20" rx="2"/>
+    <rect x="115" y="240" width="20" height="20" rx="2"/>
+    <rect x="115" y="280" width="20" height="20" rx="2"/>
+    <rect x="115" y="320" width="20" height="20" rx="2"/>
+    <rect x="155" y="200" width="20" height="20" rx="2"/>
+    <rect x="155" y="240" width="20" height="20" rx="2"/>
+    <rect x="155" y="280" width="20" height="20" rx="2"/>
+    <rect x="155" y="320" width="20" height="20" rx="2"/>
+    
+    <!-- Right Wing -->
+    <rect x="635" y="200" width="20" height="20" rx="2"/>
+    <rect x="635" y="240" width="20" height="20" rx="2"/>
+    <rect x="635" y="280" width="20" height="20" rx="2"/>
+    <rect x="635" y="320" width="20" height="20" rx="2"/>
+    <rect x="675" y="200" width="20" height="20" rx="2"/>
+    <rect x="675" y="240" width="20" height="20" rx="2"/>
+    <rect x="675" y="280" width="20" height="20" rx="2"/>
+    <rect x="675" y="320" width="20" height="20" rx="2"/>
+  </g>
+  
+  <!-- Landscaping - Trees -->
+  <g>
+    <!-- Left Tree -->
+    <g fill="#2d5a3d">
+      <circle cx="60" cy="380" r="40"/>
+      <circle cx="40" cy="360" r="25"/>
+      <circle cx="80" cy="360" r="25"/>
+    </g>
+    <rect x="50" y="420" width="20" height="50" fill="#8B6F47"/>
+    
+    <!-- Right Tree -->
+    <g fill="#2d5a3d">
+      <circle cx="740" cy="390" r="45"/>
+      <circle cx="710" cy="365" r="28"/>
+      <circle cx="770" cy="365" r="28"/>
+    </g>
+    <rect x="730" y="430" width="20" height="55" fill="#8B6F47"/>
+  </g>
+  
+  <!-- Modern Accent Lines -->
+  <g stroke="#ff6b9d" stroke-width="3" opacity="0.8">
+    <line x1="200" y1="95" x2="500" y2="95"/>
+  </g>
+  
+  <!-- Decorative Lights/Lamps -->
+  <g fill="#ffd700" opacity="0.7">
+    <circle cx="150" cy="420" r="6"/>
+    <circle cx="650" cy="420" r="6"/>
+  </g>
+</svg>

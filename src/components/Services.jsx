@@ -1,64 +1,39 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiKey, FiDollarSign, FiBarChart2, FiFileText } from 'react-icons/fi';
-
-const serviceCards = [
-  {
-    id: 1,
-    icon: FiKey,
-    title: 'Property Sales',
-    description: 'Expert guidance to sell your property at the best market price',
-    features: ['Market analysis', 'Listing strategy', 'Buyer matching'],
-    color: 'from-purple-600 to-pink-600',
-  },
-  {
-    id: 2,
-    icon: FiDollarSign,
-    title: 'Investment Advisory',
-    description: 'Strategic investment recommendations for portfolio growth',
-    features: ['ROI analysis', 'Risk assessment', 'Portfolio planning'],
-    color: 'from-pink-600 to-red-600',
-  },
-  {
-    id: 3,
-    icon: FiBarChart2,
-    title: 'Market Reports',
-    description: 'Comprehensive market analysis and trend forecasting',
-    features: ['Trend analysis', 'Price forecasting', 'Market insights'],
-    color: 'from-blue-600 to-cyan-600',
-  },
-  {
-    id: 4,
-    icon: FiFileText,
-    title: 'Legal Support',
-    description: 'Complete documentation and legal assistance for transactions',
-    features: ['Contract review', 'Title verification', 'Document prep'],
-    color: 'from-orange-600 to-yellow-600',
-  },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-};
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Building2, Users, Key, TrendingUp, ClipboardCheck } from 'lucide-react';
 
 export default function Services() {
+  const [hoveredService, setHoveredService] = useState(null);
+
+  const services = [
+    {
+      id: 1,
+      title: 'LEGAL DOCUMENTATION',
+      description: 'Complete legal support for property transactions. Our experts ensure all documentation is accurate, compliant, and protects your interests.',
+      icon: ClipboardCheck
+    },
+    {
+      id: 2,
+      title: 'PROPERTY VALUATION',
+      description: 'Professional property valuations based on market trends and comparable sales. Get accurate assessments to maximize your investment potential.',
+      icon: Key
+    },
+    {
+      id: 3,
+      title: 'MARKET LEADERS',
+      description: 'Industry-leading expertise with a proven track record. We set the standard for excellence in real estate consulting and property services.',
+      icon: Users
+    },
+    {
+      id: 4,
+      title: 'INVESTMENT ANALYSIS',
+      description: 'Strategic investment guidance and market analysis to help you make informed decisions. Maximize returns with data-driven insights.',
+      icon: TrendingUp
+    }
+  ];
+
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900">
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -74,68 +49,86 @@ export default function Services() {
           </p>
         </motion.div>
 
+        {/* Services Container with Single Background Image */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="relative h-[500px] rounded-xl overflow-hidden border-4 border-slate-300 shadow-2xl"
+          style={{
+            boxShadow: '0 0 40px rgba(0, 0, 0, 0.8), 0 0 80px rgba(0, 0, 0, 0.6)'
+          }}
         >
-          {serviceCards.map((service) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.id}
-                variants={itemVariants}
-                className="card-hover group"
-              >
-                <div className="glass rounded-xl overflow-hidden backdrop-blur-xl h-full">
-                  {/* Top Section - Icon & Title */}
-                  <div className={`bg-gradient-to-r ${service.color} p-8 text-white`}>
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      className="mb-4"
-                    >
-                      <Icon size={40} />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                  </div>
+          {/* Single Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center backdrop-blur-md"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400&h=600&fit=crop)',
+              filter: 'blur(8px)'
+            }}
+          />
 
-                  {/* Content Section */}
-                  <div className="p-6">
-                    <p className="text-slate-600 dark:text-slate-400 mb-6">
-                      {service.description}
-                    </p>
+          {/* Transparent Dark Overlay */}
+          <div className="absolute inset-0 bg-black/30" />
 
-                    {/* Features */}
-                    <div className="space-y-3 mb-6">
-                      {service.features.map((feature, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"
-                        >
-                          <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`}></span>
-                          {feature}
-                        </motion.div>
-                      ))}
-                    </div>
+          {/* Services Grid - Connected */}
+          <div className="absolute inset-0 grid grid-cols-4 divide-x divide-slate-400">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              const isHovered = hoveredService === service.id;
 
-                    {/* CTA Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-full py-2 px-4 rounded-lg text-white font-semibold bg-gradient-to-r ${service.color} hover:shadow-lg transition-shadow`}
-                    >
-                      Learn More
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+              return (
+                <motion.div
+                  key={service.id}
+                  onMouseEnter={() => setHoveredService(service.id)}
+                  onMouseLeave={() => setHoveredService(null)}
+                  className="flex flex-col items-center justify-center p-10 cursor-pointer relative group transition-colors duration-300 hover:bg-black/20"
+                >
+                  {/* Default State - Title and Icon */}
+                  <AnimatePresence>
+                    {!isHovered && (
+                      <motion.div
+                        key="default"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex flex-col items-center gap-6 text-center"
+                      >
+                        <Icon className="w-16 h-16 text-white drop-shadow-lg" strokeWidth={1.5} />
+                        <h3 className="text-white text-2xl font-bold tracking-wide drop-shadow-lg whitespace-pre-wrap">
+                          {service.title}
+                        </h3>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Hover State - Full Info */}
+                  <AnimatePresence>
+                    {isHovered && (
+                      <motion.div
+                        key="hover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex flex-col items-center gap-5 text-center"
+                      >
+                        <Icon className="w-14 h-14 text-white drop-shadow-lg" strokeWidth={1.5} />
+                        <h3 className="text-white text-2xl font-bold drop-shadow-lg">
+                          {service.title}
+                        </h3>
+                        <p className="text-white text-base leading-relaxed drop-shadow-lg max-w-xs">
+                          {service.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>
