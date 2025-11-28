@@ -48,25 +48,25 @@ export default function Hero() {
             overflow: 'hidden',
           }}
         >
-          {/* Property Video - Try to load */}
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.8,
-            }}
-          >
-            <source 
-              src="/videos/property-bg.mp4" 
-              type="video/mp4" 
-            />
-          </video>
+          {/* Property Video - From CDN */}
+           <video 
+             autoPlay 
+             muted 
+             loop 
+             playsInline
+             style={{
+               position: 'absolute',
+               width: '100%',
+               height: '100%',
+               objectFit: 'cover',
+               opacity: 0.8,
+             }}
+           >
+             <source 
+               src="https://videos.pexels.com/video-files/3844441/3844441-hd_1920_1080_25fps.mp4" 
+               type="video/mp4" 
+             />
+           </video>
         </div>
 
         {/* Dark Overlay for Text Readability */}
