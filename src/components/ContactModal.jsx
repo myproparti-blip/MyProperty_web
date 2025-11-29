@@ -44,7 +44,7 @@ export default function ContactModal({ isOpen, onClose }) {
     try {
       await emailjs.send(
         'service_edhxzp8',
-        'template_fktubtq',
+        'template_up6jarm',
         emailParams
       );
       setSubmitted(true);
