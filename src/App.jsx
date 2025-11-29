@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -13,6 +13,21 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [showContactModal, setShowContactModal] = useState(false);
+
+  useEffect(() => {
+    // Prevent pinch zoom on mobile
+    const preventPinchZoom = (e) => {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    };
+    
+    document.addEventListener('touchmove', preventPinchZoom, { passive: false });
+    
+    return () => {
+      document.removeEventListener('touchmove', preventPinchZoom);
+    };
+  }, []);
 
   return (
     <div className="dark">

@@ -128,16 +128,16 @@ export default function Consultants() {
                                 </div>
 
                                 {/* Info */}
-                                <div className="p-3 sm:p-4 flex flex-col grow">
-                                   <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-0.5">
-                                     {consultant.name}
-                                   </h3>
-                                   <p className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-semibold mb-1">
-                                     {consultant.role}
-                                   </p>
-                                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-2 sm:mb-3 line-clamp-2">
-                                     {consultant.bio}
-                                   </p>
+                                <div className="p-4 sm:p-6 flex flex-col grow">
+                                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1">
+                                        {consultant.name}
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-semibold mb-2">
+                                        {consultant.role}
+                                    </p>
+                                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3 sm:mb-4 line-clamp-2">
+                                        {consultant.bio}
+                                    </p>
                                     <div className="flex items-center justify-between gap-2 mt-auto">
                                         <span className="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-2 sm:px-3 py-1 rounded-full font-semibold line-clamp-1">
                                             {consultant.speciality}

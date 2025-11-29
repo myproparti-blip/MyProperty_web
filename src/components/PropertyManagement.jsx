@@ -53,10 +53,10 @@ export default function PropertyManagement() {
                 </motion.div>
 
                 <motion.div
-                  onMouseEnter={() => !isMobile && setIsHovered(true)}
-                  onMouseLeave={() => !isMobile && setIsHovered(false)}
-                  onClick={() => isMobile && setIsHovered(!isHovered)}
-                  className="relative h-[600px] sm:h-[700px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+                    onMouseEnter={() => !isMobile && setIsHovered(true)}
+                    onMouseLeave={() => !isMobile && setIsHovered(false)}
+                    onClick={() => isMobile && setIsHovered(!isHovered)}
+                    className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
                 >
                     {/* Background Image */}
                     <motion.div
@@ -67,102 +67,101 @@ export default function PropertyManagement() {
                     />
 
                     {/* Overlay - Hidden by default, shown on hover */}
-                     <motion.div
-                         className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/60 flex flex-col justify-between p-3 sm:p-6 md:p-8 overflow-y-auto pointer-events-auto"
-                         initial={{ opacity: 0 }}
-                         animate={{ opacity: isHovered ? 1 : 0 }}
-                         transition={{ duration: 0.3 }}
-                         pointerEvents={isHovered ? "auto" : "none"}
-                         style={{ maxHeight: '100vh' }}
-                     >
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/60 flex flex-col justify-between p-4 sm:p-6 md:p-8 overflow-y-auto pointer-events-auto"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: isHovered ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        pointerEvents={isHovered ? "auto" : "none"}
+                    >
                         <div>
-                          <h3 className="text-white text-xl sm:text-3xl md:text-4xl font-bold mb-2">{management.name}</h3>
-                          <p className="text-slate-300 text-xs sm:text-base md:text-lg max-w-lg leading-relaxed mb-3 md:mb-6 line-clamp-2 md:line-clamp-none">
-                            {management.description}
-                          </p>
+                            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{management.name}</h3>
+                            <p className="text-slate-300 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-4 md:mb-6">
+                                {management.description}
+                            </p>
 
-                          {/* Three Column Layout */}
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-6">
+                            {/* Three Column Layout */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-4 mb-6">
                                 <div>
-                                    <h4 className="text-white font-bold text-xs md:text-xs mb-1.5 md:mb-3 flex items-center gap-2 uppercase">
-                                        <FiCheckCircle size={12} className="text-teal-400" />
+                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
+                                        <FiCheckCircle size={14} className="text-teal-400" />
                                         Features
                                     </h4>
-                                    <ul className="space-y-0.5 sm:space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                         {management.features.map((feature, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs md:text-xs flex items-start gap-1">
+                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                                                 <span className="text-green-400 mt-0.5 flex-shrink-0">→</span>
                                                 <span>{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    </div>
+                                </div>
 
-                                    <div>
-                                    <h4 className="text-white font-bold text-xs md:text-xs mb-1.5 md:mb-3 flex items-center gap-2 uppercase">
-                                        <FiShield size={12} className="text-green-400" />
+                                <div>
+                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
+                                        <FiShield size={14} className="text-green-400" />
                                         Benefits
                                     </h4>
-                                    <ul className="space-y-0.5 sm:space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                         {management.benefits.map((benefit, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs md:text-xs flex items-start gap-1">
+                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                                                 <span className="text-teal-400 mt-0.5 flex-shrink-0">→</span>
                                                 <span>{benefit}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    </div>
+                                </div>
 
-                                    <div>
-                                    <h4 className="text-white font-bold text-xs md:text-xs mb-1.5 md:mb-3 flex items-center gap-2 uppercase">
-                                        <FiHome size={12} className="text-blue-400" />
+                                <div>
+                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
+                                        <FiHome size={14} className="text-blue-400" />
                                         Services
                                     </h4>
-                                    <ul className="space-y-0.5 sm:space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                         {management.services.map((service, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs md:text-xs flex items-start gap-1">
+                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
                                                 <span className="text-green-400 mt-0.5 flex-shrink-0">→</span>
                                                 <span>{service}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    </div>
-                                    </div>
-                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    {/* Stats */}
-                                    <div className="flex gap-0.5 sm:gap-2 md:gap-4 flex-wrap pt-2 md:pt-4 border-t border-slate-600 mt-2">
-                            <div className="flex items-center gap-1">
-                                <FiHome size={16} className="text-blue-400 flex-shrink-0" />
-                                <div className="text-left">
-                                    <p className="text-slate-400 text-xs leading-none">Props</p>
-                                    <p className="text-white font-bold text-sm">{management.propertiesManaged}</p>
+                        {/* Stats */}
+                        <div className="flex gap-2 sm:gap-4 flex-wrap pt-4 border-t border-slate-600">
+                            <div className="flex items-center gap-2">
+                                <FiHome size={20} className="text-blue-400" />
+                                <div>
+                                    <p className="text-slate-400 text-xs">Properties Managed</p>
+                                    <p className="text-white font-bold">{management.propertiesManaged}</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-1">
-                                <FiTrendingUp size={16} className="text-green-400 flex-shrink-0" />
-                                <div className="text-left">
-                                    <p className="text-slate-400 text-xs leading-none">Exp</p>
-                                    <p className="text-white font-bold text-sm">{management.yearsExperience}+</p>
+                            <div className="flex items-center gap-2">
+                                <FiTrendingUp size={20} className="text-green-400" />
+                                <div>
+                                    <p className="text-slate-400 text-xs">Experience</p>
+                                    <p className="text-white font-bold">{management.yearsExperience} Years</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-1 md:ml-auto">
-                                <FiWifi size={16} className="text-yellow-400 flex-shrink-0" />
-                                <div className="text-left">
-                                    <p className="text-slate-400 text-xs leading-none">Uptime</p>
-                                    <p className="text-white font-bold text-sm">{management.uptime}</p>
+                            <div className="flex items-center gap-2 ml-auto">
+                                <FiWifi size={20} className="text-yellow-400" />
+                                <div>
+                                    <p className="text-slate-400 text-xs">Platform Uptime</p>
+                                    <p className="text-white font-bold">{management.uptime}</p>
                                 </div>
                             </div>
-                            </div>
+                        </div>
 
-                            <motion.button
+                        <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setShowModal(true)}
-                            className="mt-2 md:mt-4 px-4 sm:px-8 py-1.5 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-xs sm:text-base w-fit cursor-pointer relative z-10"
-                            >
+                            className="mt-4 md:mt-6 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-sm sm:text-base w-fit cursor-pointer relative z-10"
+                        >
                             Get Started
-                            </motion.button>
+                        </motion.button>
                     </motion.div>
 
                     {/* Title - Visible by default, hidden on hover */}
@@ -206,25 +205,25 @@ export default function PropertyManagement() {
                         className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
                     >
                         <motion.div
-                             initial={{ scale: 0.7, opacity: 0, y: 30 }}
-                             animate={{ scale: 1, opacity: 1, y: 0 }}
-                             transition={{ type: "spring", duration: 0.5 }}
-                             onClick={(e) => e.stopPropagation()}
-                             className="w-full max-w-2xl max-h-[90vh] overflow-y-auto relative"
-                         >
+                            initial={{ scale: 0.7, opacity: 0, y: 30 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            transition={{ type: "spring", duration: 0.5 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="w-full max-w-2xl relative"
+                        >
                             <div className="absolute inset-0 bg-gradient-to-br from-teal-500 via-green-500 to-emerald-600 rounded-3xl opacity-75 blur-xl"></div>
-                            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-4 sm:p-6 md:p-10 border border-slate-700 shadow-2xl">
-                                 <motion.button
-                                     whileHover={{ scale: 1.1 }}
-                                     whileTap={{ scale: 0.95 }}
-                                     onClick={() => setShowModal(false)}
-                                     className="absolute top-4 sm:top-6 right-4 sm:right-6 text-slate-400 hover:text-white transition-colors"
-                                 >
-                                     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                     </svg>
-                                 </motion.button>
-                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 border border-slate-700 shadow-2xl">
+                                <motion.button
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => setShowModal(false)}
+                                    className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors"
+                                >
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </motion.button>
+                                <div className="grid md:grid-cols-2 gap-8">
                                     <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col justify-between">
                                         <div>
                                             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-teal-500 to-green-500 rounded-full">
@@ -257,8 +256,8 @@ export default function PropertyManagement() {
                                             <p className="text-slate-300 font-semibold text-center mb-4">Download App Now</p>
                                             <motion.div whileHover={{ scale: 1.05 }} className="relative">
                                                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl blur-lg opacity-40"></div>
-                                                <div className="relative bg-white p-3 sm:p-6 rounded-2xl shadow-xl">
-                                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.myproparti.myproparti" alt="Download MyProparti App" className="w-40 h-40 sm:w-56 sm:h-56" />
+                                                <div className="relative bg-white p-6 rounded-2xl shadow-xl">
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.myproparti.myproparti" alt="Download MyProparti App" className="w-56 h-56" />
                                                 </div>
                                             </motion.div>
                                         </div>
