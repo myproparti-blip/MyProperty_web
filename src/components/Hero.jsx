@@ -63,7 +63,7 @@ export default function Hero() {
              }}
            >
              <source 
-               src="https://videos.pexels.com/video-files/3844441/3844441-hd_1920_1080_25fps.mp4" 
+               src="/videos/property-bg.mp4" 
                type="video/mp4" 
              />
            </video>
