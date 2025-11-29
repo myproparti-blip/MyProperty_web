@@ -50,23 +50,25 @@ export default function Hero() {
         >
           {/* Property Video - From CDN */}
            <video 
-             autoPlay 
-             muted 
-             loop 
-             playsInline
-             style={{
-               position: 'absolute',
-               width: '100%',
-               height: '100%',
-               objectFit: 'cover',
-               opacity: 0.8,
-             }}
-           >
-             <source 
-               src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4" 
-               type="video/mp4" 
-             />
-           </video>
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                opacity: 0.8,
+                display: 'block',
+              }}
+              onError={(e) => console.error('Video error:', e)}
+            >
+              <source 
+                src="https://videos.pexels.com/video-files/3844441/3844441-hd_1920_1080_25fps.mp4" 
+                type="video/mp4" 
+              />
+            </video>
         </div>
 
         {/* Dark Overlay for Text Readability */}
