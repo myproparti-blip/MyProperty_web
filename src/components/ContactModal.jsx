@@ -34,9 +34,8 @@ export default function ContactModal({ isOpen, onClose }) {
     setError('');
 
     const emailParams = {
-      to_email: 'kunal6353199@gmail.com',
       from_name: formData.name,
-      reply_to: formData.email,
+      from_email: formData.email,
       phone: formData.phone,
       subject: formData.subject,
       message: formData.message,
