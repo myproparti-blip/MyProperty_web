@@ -47,30 +47,24 @@ export default function Hero() {
             overflow: 'hidden',
           }}
         >
-          {/* Property Video */}
+          {/* Property Video from Cloudinary */}
           <video 
             autoPlay 
             muted 
             loop 
             playsInline
-            controls={false}
-            onError={(e) => console.error('Video load error:', e)}
-            onLoadedData={() => console.log('Video loaded')}
             style={{
               position: 'absolute',
               width: '100%',
               height: '100%',
               objectFit: 'cover',
               opacity: 0.85,
-              backgroundColor: '#000',
-              display: 'block',
             }}
           >
             <source 
-              src="/videos/property-bg.mp4" 
+              src="https://res.cloudinary.com/dhmeqfsvl/video/upload/v1764399207/property-bg_hws9mg.mp4" 
               type="video/mp4" 
             />
-            Your browser does not support HTML5 video.
           </video>
         </div>
 
