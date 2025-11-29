@@ -4,10 +4,11 @@ import { FiAward, FiUsers, FiCheckCircle, FiStar, FiTrendingUp } from 'react-ico
 
 export default function ExpertConsultantsSection() {
   const [isHovered, setIsHovered] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const consultant = {
     name: 'Expert Consultants Team',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
     experience: '20+',
     team: '50+',
     clients: '5000+',
@@ -38,7 +39,7 @@ export default function ExpertConsultantsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Expert <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Consultants</span>
+            Expert <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Consultants</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Our team of highly qualified real estate professionals with proven track record of success.
@@ -60,10 +61,11 @@ export default function ExpertConsultantsSection() {
 
           {/* Overlay - Hidden by default, shown on hover */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/60 flex flex-col justify-between p-8 overflow-y-auto"
+            className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/60 flex flex-col justify-between p-8 overflow-y-auto pointer-events-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
+            pointerEvents={isHovered ? "auto" : "none"}
           >
             <div>
               <h3 className="text-white text-4xl font-bold mb-2">{consultant.name}</h3>
@@ -75,13 +77,13 @@ export default function ExpertConsultantsSection() {
               <div className="grid grid-cols-2 gap-6 mb-6">
                 <div>
                   <h4 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                    <FiAward size={16} className="text-purple-400" />
+                    <FiAward size={16} className="text-teal-400" />
                     SPECIALTIES
                   </h4>
                   <ul className="space-y-2">
                     {consultant.specialties.map((specialty, idx) => (
                       <li key={idx} className="text-slate-300 text-sm flex items-start gap-2">
-                        <span className="text-pink-400 mt-1">•</span>
+                        <span className="text-green-400 mt-1">•</span>
                         {specialty}
                       </li>
                     ))}
@@ -90,13 +92,13 @@ export default function ExpertConsultantsSection() {
 
                 <div>
                   <h4 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                    <FiCheckCircle size={16} className="text-pink-400" />
+                    <FiCheckCircle size={16} className="text-green-400" />
                     SERVICES
                   </h4>
                   <ul className="space-y-2">
                     {consultant.services.map((service, idx) => (
                       <li key={idx} className="text-slate-300 text-sm flex items-start gap-2">
-                        <span className="text-purple-400 mt-1">•</span>
+                        <span className="text-teal-400 mt-1">•</span>
                         {service}
                       </li>
                     ))}
@@ -140,7 +142,8 @@ export default function ExpertConsultantsSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold w-fit"
+              onClick={() => setShowModal(true)}
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold w-fit cursor-pointer relative z-10"
             >
               Meet Our Team
             </motion.button>
@@ -181,7 +184,85 @@ export default function ExpertConsultantsSection() {
             </div>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
-  );
-}
+
+        {/* Modal */}
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
+            className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-2xl relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 via-green-500 to-emerald-600 rounded-3xl opacity-75 blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 border border-slate-700 shadow-2xl">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowModal(false)}
+                  className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </motion.button>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col justify-between">
+                    <div>
+                      <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-teal-500 to-green-500 rounded-full">
+                        <p className="text-white font-semibold text-sm">Expert Team Available in App</p>
+                      </div>
+                      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Meet Our Experts</h2>
+                      <p className="text-slate-300 mb-6 leading-relaxed">Connect with our 50+ experienced real estate consultants directly through the app.</p>
+                      <div className="space-y-3">
+                        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-teal-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1"><span className="text-white text-sm font-bold">✓</span></div>
+                          <span className="text-slate-200">20+ Years Experience</span>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 }} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-teal-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1"><span className="text-white text-sm font-bold">✓</span></div>
+                          <span className="text-slate-200">5000+ Satisfied Clients</span>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-teal-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1"><span className="text-white text-sm font-bold">✓</span></div>
+                          <span className="text-slate-200">24/7 Client Support</span>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.45 }} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-teal-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1"><span className="text-white text-sm font-bold">✓</span></div>
+                          <span className="text-slate-200">4.9/5.0 Rating</span>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, type: "spring" }} className="flex flex-col items-center justify-center">
+                    <div className="mb-4">
+                      <p className="text-slate-300 font-semibold text-center mb-4">Download App Now</p>
+                      <motion.div whileHover={{ scale: 1.05 }} className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl blur-lg opacity-40"></div>
+                        <div className="relative bg-white p-6 rounded-2xl shadow-xl">
+                          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.myproparti.myproparti" alt="Download MyProparti App" className="w-56 h-56" />
+                        </div>
+                      </motion.div>
+                    </div>
+                    <p className="text-slate-400 text-sm text-center mt-4">Available on iOS & Android</p>
+                  </motion.div>
+                </div>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1 px-6 py-3 bg-gradient-to-r from-teal-500 to-green-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all">Download App</motion.button>
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setShowModal(false)} className="flex-1 px-6 py-3 border border-slate-600 text-slate-300 rounded-lg font-semibold hover:bg-slate-700 transition-colors">Close</motion.button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+        </div>
+        </section>
+        );
+        }

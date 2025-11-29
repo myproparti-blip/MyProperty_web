@@ -85,7 +85,7 @@ export default function ContactModal({ isOpen, onClose }) {
             >
             <div className="glass rounded-2xl backdrop-blur-xl overflow-hidden shadow-2xl">
               {/* Header */}
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-8 text-white relative">
+              <div className="bg-gradient-to-r from-teal-600 to-green-600 p-8 text-white relative">
                 <h2 className="text-3xl font-bold mb-2">Get In Touch</h2>
                 <p className="text-white/90">We'd love to hear from you. Send us a message!</p>
                 
@@ -106,7 +106,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   <div className="space-y-8">
                     <div>
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white">
+                        <div className="p-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white">
                           <FiPhone size={20} />
                         </div>
                         <div>
@@ -118,7 +118,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                     <div>
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white">
+                        <div className="p-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white">
                           <FiMail size={20} />
                         </div>
                         <div>
@@ -130,7 +130,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                     <div>
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white">
+                        <div className="p-3 bg-gradient-to-r from-teal-600 to-green-600 rounded-lg text-white">
                           <FiMapPin size={20} />
                         </div>
                         <div>
@@ -164,7 +164,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                          className="w-16 h-16 bg-gradient-to-r from-teal-600 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
                         >
                           <span className="text-2xl text-white">✓</span>
                         </motion.div>
@@ -184,7 +184,7 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="Your name"
                         />
                       </div>
@@ -199,7 +199,7 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -213,7 +213,7 @@ export default function ContactModal({ isOpen, onClose }) {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="(555) 123-4567"
                         />
                       </div>
@@ -228,7 +228,7 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="How can we help?"
                         />
                       </div>
@@ -243,7 +243,7 @@ export default function ContactModal({ isOpen, onClose }) {
                           onChange={handleChange}
                           required
                           rows="4"
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600 resize-none"
+                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600 resize-none"
                           placeholder="Your message..."
                         />
                       </div>
@@ -259,7 +259,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         whileTap={{ scale: 0.95 }}
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow disabled:opacity-70"
+                        className="w-full py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow disabled:opacity-70"
                       >
                         {loading ? 'Sending...' : 'Send Message'}
                       </motion.button>

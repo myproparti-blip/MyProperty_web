@@ -67,7 +67,7 @@ export default function Consultants() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Expert <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Consultants</span>
+            Expert <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Consultants</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Our team of experienced professionals is ready to help you find your perfect property
@@ -97,7 +97,7 @@ export default function Consultants() {
                     className="w-full h-full object-cover transition-transform duration-300"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.parentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                      e.target.parentElement.style.background = 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)';
                     }}
                   />
                   
@@ -106,21 +106,21 @@ export default function Consultants() {
                     <motion.a
                       whileHover={{ scale: 1.2 }}
                       href="#"
-                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-purple-500 hover:text-white transition-colors"
+                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-teal-500 hover:text-white transition-colors"
                     >
                       <FiLinkedin size={20} />
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.2 }}
                       href="#"
-                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-purple-500 hover:text-white transition-colors"
+                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-teal-500 hover:text-white transition-colors"
                     >
                       <FiTwitter size={20} />
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.2 }}
                       href="#"
-                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-purple-500 hover:text-white transition-colors"
+                      className="p-2 bg-white rounded-full text-slate-900 hover:bg-teal-500 hover:text-white transition-colors"
                     >
                       <FiMail size={20} />
                     </motion.a>
@@ -132,20 +132,20 @@ export default function Consultants() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                     {consultant.name}
                   </h3>
-                  <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold mb-2">
+                  <p className="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-2">
                     {consultant.role}
                   </p>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
                     {consultant.bio}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full font-semibold">
+                    <span className="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full font-semibold">
                       {consultant.speciality}
                     </span>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg transition-shadow"
+                      className="p-2 rounded-full bg-gradient-to-r from-teal-600 to-green-600 text-white hover:shadow-lg transition-shadow"
                     >
                       <FiMail size={16} />
                     </motion.button>

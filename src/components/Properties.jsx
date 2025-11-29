@@ -75,7 +75,7 @@ export default function Properties() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Properties</span>
+            Featured <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Properties</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Explore our curated collection of premium real estate properties
@@ -124,7 +124,7 @@ export default function Properties() {
 
                 {/* Property Details */}
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
                     {property.title}
                   </h3>
 
@@ -145,13 +145,13 @@ export default function Properties() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
                       {property.price}
                     </span>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm rounded-lg font-semibold hover:shadow-lg"
+                      className="px-4 py-2 bg-gradient-to-r from-teal-600 to-green-600 text-white text-sm rounded-lg font-semibold hover:shadow-lg"
                     >
                       View
                     </motion.button>

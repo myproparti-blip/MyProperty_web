@@ -23,14 +23,14 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="relative w-9 h-9">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
-              <div className="relative w-9 h-9 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-green-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+              <div className="relative w-9 h-9 bg-gradient-to-br from-teal-500 to-green-500 rounded-lg flex items-center justify-center text-white shadow-2xl">
                 <FiHome size={20} />
               </div>
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black text-white tracking-tight">MyProparti</span>
-              <span className="text-xs text-purple-300 font-semibold -mt-1">Properties</span>
+              <span className="text-xs text-teal-300 font-semibold -mt-1">Properties</span>
             </div>
           </motion.div>
 
@@ -43,7 +43,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-slate-200 hover:text-purple-300 transition-colors"
+                className="text-slate-200 hover:text-teal-300 transition-colors"
               >
                 {item.label}
               </motion.a>
@@ -57,7 +57,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onContactClick}
-              className="hidden sm:block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+              className="hidden sm:block px-6 py-2 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
             >
               Contact
             </motion.button>
@@ -83,7 +83,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
               <a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-slate-200 hover:text-purple-300"
+                className="block py-2 text-slate-200 hover:text-teal-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
@@ -94,7 +94,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
                 onContactClick();
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full mt-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold"
+              className="w-full mt-4 px-6 py-2 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold"
             >
               Contact
             </button>

@@ -58,7 +58,7 @@ export default function SearchBar() {
               onChange={(e) => handleSearch(e.target.value)}
               onKeyPress={handleKeyPress}
               onFocus={() => searchQuery && setShowSuggestions(true)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <button
@@ -67,7 +67,7 @@ export default function SearchBar() {
                 handleNavigate(suggestions[0].section);
               }
             }}
-            className="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+            className="px-6 py-2.5 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
           >
             Search
           </button>
@@ -88,7 +88,7 @@ export default function SearchBar() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: idx * 0.05 }}
                   onClick={() => handleNavigate(item.section)}
-                  className="px-4 py-3 hover:bg-purple-50 dark:hover:bg-purple-900/30 cursor-pointer transition flex items-center gap-3 border-b border-slate-200 dark:border-slate-700 last:border-b-0"
+                  className="px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 cursor-pointer transition flex items-center gap-3 border-b border-slate-200 dark:border-slate-700 last:border-b-0"
                 >
                   <img 
                     src={item.image} 

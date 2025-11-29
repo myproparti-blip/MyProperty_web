@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Building2, Users, Key, TrendingUp, ClipboardCheck } from 'lucide-react';
+import DownloadModal from './DownloadModal';
 
 export default function Services() {
   const [hoveredService, setHoveredService] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
     {
@@ -42,7 +45,7 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Services</span>
+            Our <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Comprehensive real estate solutions tailored to your needs
@@ -55,7 +58,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative h-[500px] rounded-xl overflow-hidden border-4 border-slate-300 shadow-2xl"
+          className="relative h-[500px] rounded-xl overflow-hidden border-2 border-black-400 shadow-7xl"
           style={{
             boxShadow: '0 0 40px rgba(0, 0, 0, 0.8), 0 0 80px rgba(0, 0, 0, 0.6)'
           }}
@@ -80,11 +83,15 @@ export default function Services() {
 
               return (
                 <motion.div
-                  key={service.id}
-                  onMouseEnter={() => setHoveredService(service.id)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  className="flex flex-col items-center justify-center p-10 cursor-pointer relative group transition-colors duration-300 hover:bg-black/20"
-                >
+                   key={service.id}
+                   onMouseEnter={() => setHoveredService(service.id)}
+                   onMouseLeave={() => setHoveredService(null)}
+                   onClick={() => {
+                     setSelectedService(service);
+                     setIsModalOpen(true);
+                   }}
+                   className="flex flex-col items-center justify-center p-10 cursor-pointer relative group transition-colors duration-300 hover:bg-black/20"
+                 >
                   {/* Default State - Title and Icon */}
                   <AnimatePresence>
                     {!isHovered && (
@@ -130,6 +137,13 @@ export default function Services() {
             })}
           </div>
         </motion.div>
+
+        {/* Download Modal */}
+        <DownloadModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)}
+          service={selectedService}
+        />
       </div>
     </section>
   );
