@@ -211,28 +211,28 @@ export default function Company() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 0.5 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl relative"
+            className="w-full max-w-full sm:max-w-md md:max-w-2xl relative h-auto max-h-[90vh] overflow-y-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-teal-500 via-green-500 to-emerald-600 rounded-3xl opacity-75 blur-xl"></div>
-            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 border border-slate-700 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-4 sm:p-8 md:p-10 border border-slate-700 shadow-2xl">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowModal(false)}
-                className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-10"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </motion.button>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col justify-between">
                   <div>
                     <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-teal-500 to-green-500 rounded-full">
-                      <p className="text-white font-semibold text-sm">About Mahim Corporation</p>
+                      <p className="text-white font-semibold text-xs sm:text-sm">About Mahim Corporation</p>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Learn More</h2>
-                    <p className="text-slate-300 mb-6 leading-relaxed">MyProparti is backed by Mahim Corporation, a globally recognized leader in architectural design and real estate development with 20+ years of expertise.</p>
+                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Learn More</h2>
+                    <p className="text-slate-300 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">MyProparti is backed by Mahim Corporation, a globally recognized leader in architectural design and real estate development with 20+ years of expertise.</p>
                     <div className="space-y-3">
                       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-gradient-to-r from-teal-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1"><span className="text-white text-sm font-bold">✓</span></div>
@@ -255,15 +255,15 @@ export default function Company() {
                 </motion.div>
                 <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, type: "spring" }} className="flex flex-col items-center justify-center">
                   <div className="mb-4">
-                    <p className="text-slate-300 font-semibold text-center mb-4">Download App Now</p>
+                    <p className="text-slate-300 font-semibold text-center mb-4 text-xs sm:text-sm">Download App Now</p>
                     <motion.div whileHover={{ scale: 1.05 }} className="relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-green-500 rounded-2xl blur-lg opacity-40"></div>
-                      <div className="relative bg-white p-6 rounded-2xl shadow-xl">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.myproparti.myproparti" alt="Download MyProparti App" className="w-56 h-56" />
+                      <div className="relative bg-white p-4 sm:p-6 rounded-2xl shadow-xl">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150&data=https://play.google.com/store/apps/details?id=com.myproparti.myproparti" alt="Download MyProparti App" className="w-40 sm:w-56 h-40 sm:h-56" />
                       </div>
                     </motion.div>
                   </div>
-                  <p className="text-slate-400 text-sm text-center mt-4">Available on iOS & Android</p>
+                  <p className="text-slate-400 text-xs sm:text-sm text-center mt-4">Available on iOS & Android</p>
                 </motion.div>
               </div>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mt-8 flex flex-col sm:flex-row gap-3">

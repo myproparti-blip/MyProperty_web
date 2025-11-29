@@ -77,17 +77,17 @@ export default function ContactModal({ isOpen, onClose }) {
           {/* Modal Container */}
           <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none px-4">
             {/* Modal */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="w-full max-w-2xl pointer-events-auto"
-            >
-            <div className="glass rounded-2xl backdrop-blur-xl overflow-hidden shadow-2xl">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-teal-600 to-green-600 p-8 text-white relative">
-                <h2 className="text-3xl font-bold mb-2">Get In Touch</h2>
-                <p className="text-white/90">We'd love to hear from you. Send us a message!</p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 100 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 100 }}
+                className="w-full max-w-full sm:max-w-md md:max-w-2xl pointer-events-auto h-auto max-h-[90vh] overflow-y-auto"
+              >
+              <div className="glass rounded-2xl backdrop-blur-xl overflow-hidden shadow-2xl">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-teal-600 to-green-600 p-4 sm:p-6 md:p-8 text-white relative">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-2">Get In Touch</h2>
+                  <p className="text-sm sm:text-base text-white/90">We'd love to hear from you. Send us a message!</p>
                 
                 <motion.button
                   whileHover={{ scale: 1.1 }}
@@ -100,9 +100,9 @@ export default function ContactModal({ isOpen, onClose }) {
               </div>
 
               {/* Content */}
-              <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Contact Info */}
-                <div className="p-8 bg-slate-50 dark:bg-slate-900/50 border-r border-slate-200 dark:border-slate-800">
+                <div className="p-4 sm:p-6 md:p-8 bg-slate-50 dark:bg-slate-900/50 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 order-2 md:order-1">
                   <div className="space-y-8">
                     <div>
                       <div className="flex items-center gap-3 mb-3">
@@ -111,7 +111,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         </div>
                         <div>
                           <h3 className="font-bold text-slate-900 dark:text-white">Call Us</h3>
-                          <p className="text-sm text-slate-600 dark:text-slate-400">(555) 123-4567</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">(+91) 9316225275</p>
                         </div>
                       </div>
                     </div>
@@ -135,7 +135,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         </div>
                         <div>
                           <h3 className="font-bold text-slate-900 dark:text-white">Address</h3>
-                          <p className="text-sm text-slate-600 dark:text-slate-400">123 Property St, Real Estate City, RC 12345</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">37,Sant Tukaram Society -3 Near Jamna Nagar Juction,BRTS Canal Road, surat ,Gujarat </p>
                         </div>
                       </div>
                     </div>
@@ -153,7 +153,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 </div>
 
                 {/* Form */}
-                <div className="p-8">
+                <div className="p-4 sm:p-6 md:p-8 order-1 md:order-2">
                   {submitted ? (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -173,9 +173,9 @@ export default function ContactModal({ isOpen, onClose }) {
                       </div>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                           Name
                         </label>
                         <input
@@ -184,13 +184,13 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                          className="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="Your name"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                           Email
                         </label>
                         <input
@@ -199,13 +199,13 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                          className="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="your@email.com"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                           Phone
                         </label>
                         <input
@@ -213,13 +213,13 @@ export default function ContactModal({ isOpen, onClose }) {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
-                          placeholder="(555) 123-4567"
+                          className="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-600"
+                          placeholder="Enter Number"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                           Subject
                         </label>
                         <input
@@ -228,13 +228,13 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                          className="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-600"
                           placeholder="How can we help?"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                           Message
                         </label>
                         <textarea
@@ -242,14 +242,14 @@ export default function ContactModal({ isOpen, onClose }) {
                           value={formData.message}
                           onChange={handleChange}
                           required
-                          rows="4"
-                          className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600 resize-none"
+                          rows="3"
+                          className="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 resize-none"
                           placeholder="Your message..."
                         />
                       </div>
 
                       {error && (
-                        <div className="p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg text-sm">
+                        <div className="p-2 sm:p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg text-xs sm:text-sm">
                           {error}
                         </div>
                       )}
@@ -259,7 +259,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         whileTap={{ scale: 0.95 }}
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow disabled:opacity-70"
+                        className="w-full py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transition-shadow disabled:opacity-70"
                       >
                         {loading ? 'Sending...' : 'Send Message'}
                       </motion.button>

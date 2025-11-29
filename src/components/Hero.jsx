@@ -183,21 +183,21 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-teal-500 via-green-500 to-emerald-600 rounded-3xl opacity-75 blur-xl"></div>
             
             {/* Content Card */}
-            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 border border-slate-700 shadow-2xl">
-              
-              {/* Close Button */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowModal(false)}
-                className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </motion.button>
+            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-4 sm:p-8 md:p-10 border border-slate-700 shadow-2xl max-h-screen overflow-y-auto">
+             
+             {/* Close Button */}
+             <motion.button
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.95 }}
+               onClick={() => setShowModal(false)}
+               className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-10"
+             >
+               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+               </svg>
+             </motion.button>
 
-              <div className="grid md:grid-cols-2 gap-8">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 
                 {/* Left Section - Info */}
                 <motion.div

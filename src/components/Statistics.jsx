@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import './Statistics.css';
 
 const stats = [
   { label: 'Properties Sold', value: 2500, suffix: '+' },
@@ -89,10 +90,44 @@ export default function Statistics() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <StatCard key={stat.label} stat={stat} index={index} />
-          ))}
+        {/* Marquee for Mobile - Hidden on medium+ screens */}
+        <div className="md:hidden mb-8 overflow-hidden">
+          <div className="marquee">
+            <div className="marquee-content">
+              {stats.map((stat, index) => (
+                <div key={`marquee-${stat.label}-${index}`} className="marquee-item">
+                  <div className="text-center">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 font-semibold">
+                      {stat.label}
+                    </p>
+                    <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+                      {stat.value.toLocaleString()}{stat.suffix}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {stats.map((stat, index) => (
+                <div key={`marquee-dup-${stat.label}-${index}`} className="marquee-item">
+                  <div className="text-center">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 font-semibold">
+                      {stat.label}
+                    </p>
+                    <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+                      {stat.value.toLocaleString()}{stat.suffix}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grid for Medium+ screens */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+           {stats.map((stat, index) => (
+             <StatCard key={stat.label} stat={stat} index={index} />
+           ))}
         </div>
       </div>
     </section>

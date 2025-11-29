@@ -13,7 +13,7 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
   ];
 
   return (
-    <header className="w-full absolute top-0 left-0 z-10 bg-opacity-0">
+    <header className="w-full absolute top-0 left-0 z-50 bg-opacity-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -71,19 +71,34 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden pb-4 border-t border-slate-700"
-          >
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+        />
+      )}
+
+      {/* Mobile Menu - Slide from Right */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ x: 300 }}
+          animate={{ x: 0 }}
+          exit={{ x: 300 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          className="fixed right-0 top-0 h-screen w-64 bg-slate-900 z-50 md:hidden shadow-2xl pt-20 px-4 overflow-y-auto"
+        >
+          <div className="space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-slate-200 hover:text-teal-300"
+                className="block py-3 text-slate-200 hover:text-teal-300 text-lg font-semibold transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
@@ -94,13 +109,13 @@ export default function Header({ isDark, setIsDark, onContactClick }) {
                 onContactClick();
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full mt-4 px-6 py-2 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold"
+              className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold"
             >
               Contact
             </button>
-          </motion.div>
-        )}
-      </div>
+          </div>
+        </motion.div>
+      )}
     </header>
   );
 }

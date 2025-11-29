@@ -58,7 +58,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative h-[500px] rounded-xl overflow-hidden border-2 border-black-400 shadow-7xl"
+          className="relative min-h-[600px] sm:h-[280px] md:h-[320px] lg:h-[380px] rounded-xl overflow-hidden border-2 border-black-400 shadow-7xl"
           style={{
             boxShadow: '0 0 40px rgba(0, 0, 0, 0.8), 0 0 80px rgba(0, 0, 0, 0.6)'
           }}
@@ -76,7 +76,7 @@ export default function Services() {
           <div className="absolute inset-0 bg-black/30" />
 
           {/* Services Grid - Connected */}
-          <div className="absolute inset-0 grid grid-cols-4 divide-x divide-slate-400">
+          <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-slate-400 relative z-10">
             {services.map((service, index) => {
               const Icon = service.icon;
               const isHovered = hoveredService === service.id;
@@ -90,10 +90,10 @@ export default function Services() {
                      setSelectedService(service);
                      setIsModalOpen(true);
                    }}
-                   className="flex flex-col items-center justify-center p-10 cursor-pointer relative group transition-colors duration-300 hover:bg-black/20"
-                 >
-                  {/* Default State - Title and Icon */}
-                  <AnimatePresence>
+                   className="flex flex-col items-center justify-center p-3 sm:p-4 lg:p-6 cursor-pointer relative group transition-colors duration-300 hover:bg-black/20 min-h-[200px] sm:min-h-[240px] lg:min-h-auto border-b border-slate-400 sm:border-b-0"
+                   >
+                   {/* Default State - Title and Icon */}
+                   <AnimatePresence>
                     {!isHovered && (
                       <motion.div
                         key="default"
@@ -101,18 +101,18 @@ export default function Services() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="flex flex-col items-center gap-6 text-center"
+                        className="flex flex-col items-center gap-3 sm:gap-6 text-center"
                       >
-                        <Icon className="w-16 h-16 text-white drop-shadow-lg" strokeWidth={1.5} />
-                        <h3 className="text-white text-2xl font-bold tracking-wide drop-shadow-lg whitespace-pre-wrap">
+                        <Icon className="w-10 sm:w-14 h-10 sm:h-14 text-white drop-shadow-lg" strokeWidth={1.5} />
+                        <h3 className="text-white text-base sm:text-xl font-bold tracking-wide drop-shadow-lg whitespace-pre-wrap">
                           {service.title}
                         </h3>
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                   </AnimatePresence>
 
-                  {/* Hover State - Full Info */}
-                  <AnimatePresence>
+                   {/* Hover State - Full Info */}
+                   <AnimatePresence>
                     {isHovered && (
                       <motion.div
                         key="hover"
@@ -120,19 +120,19 @@ export default function Services() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="flex flex-col items-center gap-5 text-center"
+                        className="flex flex-col items-center gap-3 sm:gap-5 text-center"
                       >
-                        <Icon className="w-14 h-14 text-white drop-shadow-lg" strokeWidth={1.5} />
-                        <h3 className="text-white text-2xl font-bold drop-shadow-lg">
+                        <Icon className="w-10 sm:w-12 h-10 sm:h-12 text-white drop-shadow-lg" strokeWidth={1.5} />
+                        <h3 className="text-white text-base sm:text-lg font-bold drop-shadow-lg">
                           {service.title}
                         </h3>
-                        <p className="text-white text-base leading-relaxed drop-shadow-lg max-w-xs">
+                        <p className="text-white text-xs sm:text-sm leading-relaxed drop-shadow-lg max-w-xs">
                           {service.description}
                         </p>
                       </motion.div>
                     )}
-                  </AnimatePresence>
-                </motion.div>
+                   </AnimatePresence>
+                   </motion.div>
               );
             })}
           </div>

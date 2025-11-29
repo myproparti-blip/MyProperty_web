@@ -1,0 +1,60 @@
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+  border-radius: 0.5rem;
+  padding: 2rem 0;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  gap: 2rem;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover for better UX */
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .marquee {
+  background: linear-gradient(to right, transparent, rgba(15, 23, 42, 0.3), transparent);
+}
+
+@media (max-width: 640px) {
+  .marquee {
+    min-height: 120px;
+    padding: 1.5rem 0;
+  }
+
+  .marquee-item {
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+  }
+
+  .marquee-content {
+    gap: 1.5rem;
+    animation: scroll 25s linear infinite;
+  }
+}
