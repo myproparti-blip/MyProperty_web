@@ -28,12 +28,20 @@ export default function App() {
             onContactClick={() => setShowContactModal(true)}
           />
           <Hero />
-          <FeaturedPropertiesSection />
-          <ExpertConsultantsSection />
-          <PropertyManagement />
-          <Services />
-          <Statistics />
-          <Company />
+           <div id="properties">
+             <FeaturedPropertiesSection />
+           </div>
+           <div id="consultants">
+             <ExpertConsultantsSection />
+           </div>
+           <div id="management">
+             <PropertyManagement />
+           </div>
+           <div id="services">
+             <Services />
+           </div>
+           <Statistics />
+           <Company />
         </motion.main>
 
         <ContactModal
