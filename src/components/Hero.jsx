@@ -47,29 +47,7 @@ export default function Hero() {
             animation: 'animatedGradient 15s ease infinite',
             overflow: 'hidden',
           }}
-        >
-          {/* Property Video - From CDN */}
-           <video 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-              style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                opacity: 0.8,
-                display: 'block',
-              }}
-              onError={(e) => console.error('Video error:', e)}
-            >
-              <source 
-                src="https://assets.codepen.io/6093409/river.min.mp4" 
-                type="video/mp4" 
-              />
-            </video>
-        </div>
+        />
 
         {/* Dark Overlay for Text Readability */}
         <div 
