@@ -44,10 +44,29 @@ export default function Hero() {
             zIndex: 0,
             background: 'linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e1b4b)',
             backgroundSize: '400% 400%',
-            animation: 'animatedGradient 15s ease infinite',
             overflow: 'hidden',
           }}
-        />
+        >
+          {/* Property Video */}
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: 0.85,
+            }}
+          >
+            <source 
+              src="/videos/property-bg.mp4" 
+              type="video/mp4" 
+            />
+          </video>
+        </div>
 
         {/* Dark Overlay for Text Readability */}
         <div 
