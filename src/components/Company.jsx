@@ -129,15 +129,15 @@ export default function Company() {
               </div>
               
               {/* Overlay Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="absolute -top-6 -left-6 glass rounded-xl p-6 backdrop-blur-xl bg-white/10"
-              >
-                <div>
-                  <p className="text-3xl font-bold">20+</p>
-                  <p className="text-sm font-semibold">Years of Excellence</p>
-                </div>
-              </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="absolute top-4 left-4 glass rounded-xl p-3 sm:p-4 backdrop-blur-xl bg-white/10 z-20 border border-white/20"
+                >
+                  <div className="whitespace-nowrap">
+                    <p className="text-xl sm:text-2xl font-bold text-white leading-none">20+</p>
+                    <p className="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Excellence</p>
+                  </div>
+                </motion.div>
             </div>
           </motion.div>
 

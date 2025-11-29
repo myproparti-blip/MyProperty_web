@@ -143,13 +143,13 @@ export default function ExpertConsultantsSection() {
                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => setShowModal(true)}
-                            className="mt-2 md:mt-4 px-4 sm:px-8 py-1.5 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-xs sm:text-base w-fit cursor-pointer relative z-10"
-                        >
-                            Meet Our Team
-                        </motion.button>
+                             whileHover={{ scale: 1.05 }}
+                             whileTap={{ scale: 0.95 }}
+                             onClick={() => setShowModal(true)}
+                             className="mt-4 md:mt-6 px-4 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-xs sm:text-base w-fit cursor-pointer relative z-20"
+                         >
+                             Meet Our Team
+                         </motion.button>
                     </motion.div>
 
                     {/* Title - Visible by default, hidden on hover */}

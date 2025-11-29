@@ -75,22 +75,22 @@ export default function PropertyManagement() {
                         pointerEvents={isHovered ? "auto" : "none"}
                     >
                         <div>
-                            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{management.name}</h3>
-                            <p className="text-slate-300 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-4 md:mb-6">
-                                {management.description}
-                            </p>
+                             <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-1 md:mb-2">{management.name}</h3>
+                             <p className="text-slate-300 text-xs sm:text-sm md:text-base max-w-lg leading-relaxed mb-2 md:mb-3">
+                                 {management.description}
+                             </p>
 
-                            {/* Three Column Layout */}
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-4 mb-6">
+                             {/* Three Column Layout */}
+                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3 mb-3 md:mb-4">
                                 <div>
-                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                                        <FiCheckCircle size={14} className="text-teal-400" />
+                                    <h4 className="text-white font-bold text-[10px] sm:text-xs mb-1 sm:mb-2 flex items-center gap-1 uppercase">
+                                        <FiCheckCircle size={12} className="text-teal-400 flex-shrink-0" />
                                         Features
                                     </h4>
-                                    <ul className="space-y-1 sm:space-y-2">
+                                    <ul className="space-y-0.5 sm:space-y-1">
                                         {management.features.map((feature, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
-                                                <span className="text-green-400 mt-0.5 flex-shrink-0">→</span>
+                                            <li key={idx} className="text-slate-300 text-[9px] sm:text-xs flex items-start gap-1">
+                                                <span className="text-green-400 mt-0.5 flex-shrink-0 text-[8px]">→</span>
                                                 <span>{feature}</span>
                                             </li>
                                         ))}
@@ -98,14 +98,14 @@ export default function PropertyManagement() {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                                        <FiShield size={14} className="text-green-400" />
+                                    <h4 className="text-white font-bold text-[10px] sm:text-xs mb-1 sm:mb-2 flex items-center gap-1 uppercase">
+                                        <FiShield size={12} className="text-green-400 flex-shrink-0" />
                                         Benefits
                                     </h4>
-                                    <ul className="space-y-1 sm:space-y-2">
+                                    <ul className="space-y-0.5 sm:space-y-1">
                                         {management.benefits.map((benefit, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
-                                                <span className="text-teal-400 mt-0.5 flex-shrink-0">→</span>
+                                            <li key={idx} className="text-slate-300 text-[9px] sm:text-xs flex items-start gap-1">
+                                                <span className="text-teal-400 mt-0.5 flex-shrink-0 text-[8px]">→</span>
                                                 <span>{benefit}</span>
                                             </li>
                                         ))}
@@ -113,14 +113,14 @@ export default function PropertyManagement() {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-white font-bold text-xs mb-3 flex items-center gap-2 uppercase">
-                                        <FiHome size={14} className="text-blue-400" />
+                                    <h4 className="text-white font-bold text-[10px] sm:text-xs mb-1 sm:mb-2 flex items-center gap-1 uppercase">
+                                        <FiHome size={12} className="text-blue-400 flex-shrink-0" />
                                         Services
                                     </h4>
-                                    <ul className="space-y-1 sm:space-y-2">
+                                    <ul className="space-y-0.5 sm:space-y-1">
                                         {management.services.map((service, idx) => (
-                                            <li key={idx} className="text-slate-300 text-xs flex items-start gap-2">
-                                                <span className="text-green-400 mt-0.5 flex-shrink-0">→</span>
+                                            <li key={idx} className="text-slate-300 text-[9px] sm:text-xs flex items-start gap-1">
+                                                <span className="text-green-400 mt-0.5 flex-shrink-0 text-[8px]">→</span>
                                                 <span>{service}</span>
                                             </li>
                                         ))}
@@ -130,38 +130,38 @@ export default function PropertyManagement() {
                         </div>
 
                         {/* Stats */}
-                        <div className="flex gap-2 sm:gap-4 flex-wrap pt-4 border-t border-slate-600">
-                            <div className="flex items-center gap-2">
-                                <FiHome size={20} className="text-blue-400" />
-                                <div>
-                                    <p className="text-slate-400 text-xs">Properties Managed</p>
-                                    <p className="text-white font-bold">{management.propertiesManaged}</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <FiTrendingUp size={20} className="text-green-400" />
-                                <div>
-                                    <p className="text-slate-400 text-xs">Experience</p>
-                                    <p className="text-white font-bold">{management.yearsExperience} Years</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2 ml-auto">
-                                <FiWifi size={20} className="text-yellow-400" />
-                                <div>
-                                    <p className="text-slate-400 text-xs">Platform Uptime</p>
-                                    <p className="text-white font-bold">{management.uptime}</p>
-                                </div>
-                            </div>
-                        </div>
+                         <div className="flex gap-1 sm:gap-2 flex-wrap pt-2 md:pt-4 border-t border-slate-600">
+                             <div className="flex items-center gap-1">
+                                 <FiHome size={16} className="text-blue-400 flex-shrink-0" />
+                                 <div>
+                                     <p className="text-slate-400 text-xs leading-none">Props</p>
+                                     <p className="text-white font-bold text-sm">{management.propertiesManaged}</p>
+                                 </div>
+                             </div>
+                             <div className="flex items-center gap-1">
+                                 <FiTrendingUp size={16} className="text-green-400 flex-shrink-0" />
+                                 <div>
+                                     <p className="text-slate-400 text-xs leading-none">Exp</p>
+                                     <p className="text-white font-bold text-sm">{management.yearsExperience}+</p>
+                                 </div>
+                             </div>
+                             <div className="flex items-center gap-1 md:ml-auto">
+                                 <FiWifi size={16} className="text-yellow-400 flex-shrink-0" />
+                                 <div>
+                                     <p className="text-slate-400 text-xs leading-none">Uptime</p>
+                                     <p className="text-white font-bold text-sm">{management.uptime}</p>
+                                 </div>
+                             </div>
+                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => setShowModal(true)}
-                            className="mt-4 md:mt-6 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-sm sm:text-base w-fit cursor-pointer relative z-10"
-                        >
-                            Get Started
-                        </motion.button>
+                             whileHover={{ scale: 1.05 }}
+                             whileTap={{ scale: 0.95 }}
+                             onClick={() => setShowModal(true)}
+                             className="mt-4 md:mt-6 px-4 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-lg font-semibold text-xs sm:text-base w-fit cursor-pointer relative z-20 flex-shrink-0"
+                         >
+                             Get Started
+                         </motion.button>
                     </motion.div>
 
                     {/* Title - Visible by default, hidden on hover */}
