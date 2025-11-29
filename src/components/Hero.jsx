@@ -63,7 +63,7 @@ export default function Hero() {
              }}
            >
              <source 
-               src="/videos/property-bg.mp4" 
+               src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4" 
                type="video/mp4" 
              />
            </video>
