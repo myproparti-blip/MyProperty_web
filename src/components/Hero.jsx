@@ -62,7 +62,7 @@ export default function Hero() {
             }}
           >
             <source 
-              src="/videos/property-bg.mp4" 
+              src="https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_h264.mov" 
               type="video/mp4" 
             />
           </video>
